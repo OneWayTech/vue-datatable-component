@@ -2,7 +2,7 @@
   "name": "vue-datatable-component",
   "description": "Datatable encapsulation for Vue 1.x",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/Datatable/index.vue",
   "scripts": {
     "lint": "eslint src/",
@@ -18,6 +18,7 @@
     "table"
   ],
   "dependencies": {
+    "lodash": "^4.17.3",
     "vue-sync-query-mixin": "^1.0.5",
     "vue-update-query-mixin": "^1.0.4"
   },
@@ -27,6 +28,8 @@
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-2": "^6.18.0",
+    "babel-runtime": "^6.20.0",
+    "babelify": "^7.3.0",
     "browserify": "^13.1.1",
     "browserify-shim": "^3.8.12",
     "cross-env": "^3.1.3",
@@ -39,6 +42,7 @@
   "browserify": {
     "transform": [
       "browserify-shim",
+      "babelify",
       "vueify",
       "uglifyify"
     ]

@@ -2,15 +2,12 @@ export default {
   events: {
     TOGGLE (id) {
       const targetIdx = this.checkedIds.indexOf(id)
-      if (targetIdx === -1) {
-        this.checkedIds.push(id)
-      } else {
-        this.checkedIds.$remove(id)
-      }
+      this.checkedIds[targetIdx === -1 ? 'push' : '$remove'](id)
       this.$broadcast('TOGGLE', this.checkedIds.length)
     },
     TOGGLE_ALL (headCheckboxStatus) {
-      this.checkedIds = [] // 先清空，若是全勾选则随后会逐个 dispatch 回来
+      // clear all, they will dispatch their ids back if status is true
+      this.checkedIds = []
       this.$broadcast('TOGGLE_ALL', headCheckboxStatus)
     }
   }

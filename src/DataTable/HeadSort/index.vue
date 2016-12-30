@@ -1,8 +1,6 @@
 <template>
-  <a href="javascript:;"
-    class="fa pull-right"
-    :class="icon"
-    @click="syncQs">
+  <a href="javascript:;" @click="handleSort">
+    <i class="fa" :class="`fa-sort-${order}` | trimTailBar"></i>
   </a>
 </template>
 <script>
@@ -10,40 +8,39 @@ import updateQuery from 'vue-update-query-mixin'
 /**
  * Sorting arrows inside <th>
  * Notice: this component must work along with ./mixin.js
+ *
+ * e.g. <url>?order=desc&sort=id
  */
-const baseIcon = 'fa-sort'
-const ascIcon = 'fa-sort-asc'
-const descIcon = 'fa-sort-desc'
-
 export default {
   mixins: [updateQuery],
   props: {
     field: { type: String, required: true }
   },
-  data: () => ({ icon: baseIcon }),
+  data: () => ({ order: '' }),
+  ready () {
+    // sync with query manually at the beginnings
+    const { sort: field, order } = this.$route.query
+    if (field === this.field) this.order = order
+  },
   methods: {
-    syncQs () {
-      let order
-      switch (this.icon) {
-        case baseIcon:
-        case ascIcon:
-          order = 'desc'
-          this.icon = descIcon
-          break
-        default:
-          order = 'asc'
-          this.icon = ascIcon
-          break
-      }
-      this.updateQuery({ order, sort: this.field })
-      this.$dispatch('RESET_OTHER_SORTS', this.field)
+    handleSort () {
+      let { order, field } = this
+      order = order === 'desc' ? 'asc' : 'desc'
+
+      this.updateQuery({
+        order: this.order = order,
+        sort: field
+      })
+      this.$dispatch('RESET_OTHER_SORTS', field)
     }
+  },
+  filters: {
+    trimTailBar: s => s.replace(/-$/, '')
   },
   events: {
     // if an other field is sorting, reset myself
-    RESET_SORT (curField) {
-      if (curField === this.field) return
-      this.icon = 'fa-sort'
+    RESET_SORT (sortField) {
+      if (sortField !== this.field) this.order = ''
     }
   }
 }
