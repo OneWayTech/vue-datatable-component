@@ -10,7 +10,7 @@ This component is not meant to fit all the business requirements
 so diving into `src/` to make it meets your needs is highly recommended
 
 #### Example
-See [here](https://kenberkeley.github.io/vue-datatable-component/example.html), source in `example.html`
+See [here](https://kenberkeley.github.io/vue-datatable-component/example.html), source in [`example.html`](./example.html)
 > I prefer to inspect it with [devtools](https://github.com/vuejs/vue-devtools)
 
 #### Requirement
