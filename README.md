@@ -94,6 +94,6 @@ src/DataTable
 
 MIT
 
-[npm-url]: https://www.npmjs.com/package/vue-select2-component
-[npm-v-img]: http://img.shields.io/npm/v/vue-select2-component.svg
-[npm-dl-img]: http://img.shields.io/npm/dm/vue-select2-component.svg
+[npm-url]: https://www.npmjs.com/package/vue-datatable-component
+[npm-v-img]: http://img.shields.io/npm/v/vue-datatable-component.svg
+[npm-dl-img]: http://img.shields.io/npm/dm/vue-datatable-component.svg
