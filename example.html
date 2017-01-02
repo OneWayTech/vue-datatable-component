@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Vue DataTable Component Example</title>
-  <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -27,11 +27,11 @@
     </data-table>
   </div>
 
-<script src="./static/jquery.min.js"></script>
-<script src="./static/bootstrap/js/bootstrap.min.js"></script>
-<script src="./static/vue.min.js"></script>
-<script src="./static/vue-router.min.js"></script>
-<script src="../dist/vue-datatable-component.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//cdn.bootcss.com/vue/1.0.28/vue.min.js"></script>
+<script src="//cdn.bootcss.com/vue-router/0.7.13/vue-router.min.js"></script>
+<script src="./dist/vue-datatable-component.min.js"></script>
 <script>
 // setup
 Vue.use(VueRouter);
@@ -74,7 +74,7 @@ var App = {
         { field: 'name', title: 'Nickname' },
         { field: 'age', title: 'Age', sort: true },
         { field: 'status', title: 'Current mood', component: 'Status' },
-        { field: '_', title: 'Console', component: 'Print' }
+        { field: '_whatever_name_', title: 'Console', component: 'Print' }
       ],
       tableData: [
         { uid: 1, name: 'Ken', age: 22, status: 0 },
