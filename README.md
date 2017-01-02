@@ -19,7 +19,7 @@ See [here](https://kenberkeley.github.io/vue-datatable-component/example.html), 
 * [vue-update-query-mixin](https://github.com/kenberkeley/vue-update-query-mixin)
 * [vue-sync-query-mixin](https://github.com/kenberkeley/vue-sync-query-mixin)
 * Lodash 4.x
-* jQuery + BootStrap 3.x (available globally)
+* jQuery + BootStrap 3.x + Font Awesome 4.x (available globally)
 
 #### Installation
 `npm i vue-datatable-component -S`
