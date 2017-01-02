@@ -1,6 +1,6 @@
 <template>
   <label>
-    show
+    show&nbsp;
     <select class="form-control input-sm inline-select" v-model="limit$">
       <option value="10">10</option>
       <option value="20">20</option>
@@ -8,7 +8,7 @@
       <option value="80">80</option>
       <option value="100">100</option>
     </select>
-    records per page
+    &nbsp;records per page
   </label>
 </template>
 <script>

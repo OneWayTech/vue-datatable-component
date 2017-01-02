@@ -85,3 +85,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.m-t-0 {
+  margin-top: 0;
+}
+</style>

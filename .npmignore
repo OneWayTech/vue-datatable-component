@@ -1,5 +1,7 @@
 .DS_Store
 *.log
+*.png
 .git
 dist
+example
 node_modules

@@ -55,7 +55,7 @@
     </div><!-- .row -->
     <div class="row clearfix">
       <div class="col-sm-6 nowrap">
-        <strong>Total</strong> <span class="badge">{{ total }}</span> , 
+        <strong>Total</strong> <span class="badge">{{ total }}</span>,&nbsp;
         <limit-select class="dsp-inl-b" v-if="conf.limitSelect" :total="total"></limit-select>
       </div>
       <div class="col-sm-6">
@@ -82,7 +82,7 @@ export default {
     LimitSelect, Pagination, SearchInput
   },
   props: {
-    columns: { type: Array, required: true, twoWay: true },
+    columns: { type: Array, required: true },
     data: { type: Array, required: true },
     total: { type: Number, required: true },
     checkedIds: { type: Array, twoWay: true },
@@ -91,7 +91,7 @@ export default {
   computed: {
     conf () {
       return {
-        multiSelect: false, headerSettings: true,
+        multiSelect: true, headerSettings: true,
         limitSelect: true, pagination: true,
         searchInput: true, idField: 'id',
         // default config shown as above

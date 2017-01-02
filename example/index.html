@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vue DataTable Component Example</title>
+  <link href="./static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="app" class="container" style="margin-top:50px">
+    <button
+      class="btn btn-default btn-xs btn-block"
+      onclick="location.reload()">
+      Click me to force reload current page, to see how components keep in sync with URL's query string
+    </button>
+    <br>
+    <router-view></router-view>
+    <hr>
+    <data-table
+      :columns="columns"
+      :data="tableData"
+      :total="total"
+      :checked-ids.sync="checkedIds"
+      :config="{ idField: 'uid', searchInput: 'User ID / Nickname' }">
+      <code slot="opt">Checked ID: {{ checkedIds | json }}</code>
+    </data-table>
+  </div>
+
+<script src="./static/jquery.min.js"></script>
+<script src="./static/bootstrap/js/bootstrap.min.js"></script>
+<script src="./static/vue.min.js"></script>
+<script src="./static/vue-router.min.js"></script>
+<script src="../dist/vue-datatable-component.min.js"></script>
+<script>
+// setup
+Vue.use(VueRouter);
+Vue.config.devtools = true;
+
+// table-cell-component for `status` field
+var Status = {
+  props: ['value'],
+  computed: {
+    status () {
+      return ['Not bad', 'Good', 'Perfect'][this.value];
+    }
+  },
+  template: '<span>{{ status }}</span>'
+};
+
+// table-cell-component for printing user info to console
+var PrintToConsole = {
+  props: ['row'],
+  methods: {
+    print: function () {
+      console.info(JSON.stringify(this.row));
+    }
+  },
+  template: '<button class="btn btn-default fa fa-print" @click="print"></button>'
+};
+
+// root component
+var App = {
+  components: {
+    DataTable: VueDataTable,
+    // table-cell-components below
+    Status: Status,
+    Print: PrintToConsole
+  },
+  data: function () {
+    return {
+      columns: [
+        { field: 'uid', title: 'User ID', sort: true },
+        { field: 'name', title: 'Nickname' },
+        { field: 'age', title: 'Age', sort: true },
+        { field: 'status', title: 'Current mood', component: 'Status' },
+        { field: '_', title: 'Console', component: 'Print' }
+      ],
+      tableData: [
+        { uid: 1, name: 'Ken', age: 22, status: 0 },
+        { uid: 2, name: 'John', age: 23, status: 1 },
+        { uid: 3, name: 'Mike', age: 24, status: 2 },
+        { uid: 4, name: 'May', age: 25, status: 0 },
+        { uid: 5, name: 'Kate', age: 26, status: 1 },
+        { uid: 6, name: 'Ben', age: 27, status: 2 },
+        { uid: 7, name: 'Amy', age: 28, status: 0 },
+        { uid: 8, name: 'Susan', age: 29, status: 1 },
+        { uid: 9, name: 'Paker', age: 30, status: 2 },
+        { uid: 10, name: 'Taylor', age: 31, status: 0 }
+      ],
+      checkedIds: [], // for multi-select
+      total: 50
+    };
+  }
+};
+
+// run app!
+var router = new VueRouter();
+router.map({
+  '/': {
+    component: {
+      route: {
+        data: function () {
+          // fetch data with this.$route.query...
+        }
+      },
+      template: '<code>$route.query: {{ $route.query | json }}</code>'
+    }
+  }
+});
+router.start(App, '#app');
+
+// table components will keep in sync with URL's query string
+// try reloading page to test this feature
+
+</script>
+</body>
+</html>

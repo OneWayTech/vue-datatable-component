@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" v-model="status" @change="handleChange" />
+  <input type="checkbox" v-model="status" @change="handleChange">
 </template>
 <script>
 import isUndefined from '../../utils/isUndefined'
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     handleChange () {
-      isUndefined(this.id)
+      this.id
         ? this.$dispatch('TOGGLE', this.id)
         : this.$dispatch('TOGGLE_ALL', this.status)
     }
@@ -35,9 +35,8 @@ export default {
     // for the <td> checkbox
     TOGGLE_ALL (headCheckboxStatus) {
       this.status = headCheckboxStatus
-      if (isUndefined(this.id) && headCheckboxStatus) {
-        this.$dispatch('TOGGLE', this.id) // dispatch back
-      }
+      // dispatch back
+      this.id && headCheckboxStatus && this.$dispatch('TOGGLE', this.id)
     }
   }
 }

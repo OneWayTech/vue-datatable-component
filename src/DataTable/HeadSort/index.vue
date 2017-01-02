@@ -18,8 +18,8 @@ export default {
   },
   data: () => ({ order: '' }),
   ready () {
-    // sync with query manually at the beginnings
-    const { sort: field, order } = this.$route.query
+    // sync with query manually at the beginning
+    const { sortBy: field, order } = this.$route.query
     if (field === this.field) this.order = order
   },
   methods: {
@@ -29,7 +29,7 @@ export default {
 
       this.updateQuery({
         order: this.order = order,
-        sort: field
+        sortBy: field
       })
       this.$dispatch('RESET_OTHER_SORTS', field)
     }

@@ -19,7 +19,7 @@
           <input type="checkbox"
             :id="'-chkbox-' + column.field" :value="column.field"
             @change="handleChange(($index - 1) / 2, $event.target.checked)" 
-            :checked="!column.defaultHidden" />
+            :checked="!column.defaultHidden">&nbsp;
           <label class="small" :for="'-chkbox-' + column.field">
             {{ column.title }}
           </label>
@@ -122,6 +122,9 @@ export default {
     }
   },
   attached () {
+    // prevent auto-hide
+    $(this.$els.dropdownMenu).on('click', e => e.stopPropagation())
+
     $(window).on('resize', _throttle(this.resizeDropdown, 250))
     this.resizeDropdown()
   },

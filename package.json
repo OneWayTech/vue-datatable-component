@@ -2,11 +2,11 @@
   "name": "vue-datatable-component",
   "description": "Datatable encapsulation for Vue 1.x",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/Datatable/index.vue",
   "scripts": {
     "lint": "eslint src/",
-    "build": "cross-env NODE_ENV=production browserify ./ -o dist/vue-datatable-component.min.js"
+    "build": "npm run lint && cross-env NODE_ENV=production browserify -s VueDataTable ./ -o dist/vue-datatable-component.min.js"
   },
   "repository": {
     "type": "git",
