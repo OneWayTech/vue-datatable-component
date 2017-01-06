@@ -16,7 +16,7 @@
       </div>
     </div><!-- .row -->
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 table-responsive">
         <table v-show="data.length" class="table table-striped table-bordered">
           <thead>
             <tr>

@@ -2,7 +2,7 @@
   "name": "vue-datatable-component",
   "description": "Datatable encapsulation for Vue 1.x",
   "author": "Ken Berkeley <kenberkeley@foxmail.com>",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "src/Datatable/index.vue",
   "scripts": {
     "lint": "eslint src/",
