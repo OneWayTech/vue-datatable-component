@@ -5,10 +5,8 @@
         <slot name="opt"><!-- operation bar slot --></slot>
       </div>
       <div class="pull-right" :class="'col-sm-' + (conf.searchInput ? 6 : 2)">
-        <div class="pull-right">
-          <header-settings v-if="conf.headerSettings"
-            :columns.sync="columns">
-          </header-settings>
+        <div v-if="conf.headerSettings" class="pull-right">
+          <header-settings :columns.sync="columns"></header-settings>
         </div>
         <div v-if="conf.searchInput" class="pull-right" style="width:75%">
           <search-input :placeholder="conf.searchInput"></search-input>
@@ -54,12 +52,12 @@
       </div>
     </div><!-- .row -->
     <div class="row clearfix">
-      <div class="col-sm-6 nowrap">
+      <div v-if="conf.limitSelect" class="col-sm-6 nowrap">
         <strong>Total</strong> <span class="badge">{{ total }}</span>,&nbsp;
-        <limit-select class="dsp-inl-b" v-if="conf.limitSelect" :total="total"></limit-select>
+        <limit-select class="dsp-inl-b" :total="total"></limit-select>
       </div>
-      <div class="col-sm-6">
-        <pagination class="pull-right" v-if="conf.pagination" :total="total"></pagination>
+      <div v-if="conf.pagination" class="col-sm-6">
+        <pagination class="pull-right" :total="total"></pagination>
       </div>
     </div><!-- .row -->
   </div><!-- .container -->
