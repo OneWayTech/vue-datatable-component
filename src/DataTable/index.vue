@@ -21,7 +21,8 @@
               <th v-if="conf.multiSelect" width="1em">
                 <multi-select :total="data.length"></multi-select>
               </th>
-              <th v-for="column in columns" v-show="!column.defaultHidden" transition="fade">
+              <th v-for="column in columns" v-show="!column.defaultHidden"
+                transition="fade" class="text-center">
                 {{ column.title }}
                 <head-sort v-if="column.sort" :field="column.field" class="pull-right"></head-sort>
               </th>
@@ -32,7 +33,8 @@
               <td v-if="conf.multiSelect" width="1em">
                 <multi-select :id="item[conf.idField]"></multi-select>
               </td>
-              <td v-for="column in columns" v-show="!column.defaultHidden" transition="fade">
+              <td v-for="column in columns" v-show="!column.defaultHidden"
+                transition="fade" class="text-center">
                 <component v-if="column.component"
                   :is="column.component"
                   :row.sync="item"

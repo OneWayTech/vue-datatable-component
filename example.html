@@ -23,7 +23,11 @@
       :total="total"
       :checked-ids.sync="checkedIds"
       :config="{ idField: 'uid', searchInput: 'User ID / Nickname' }">
-      <code slot="opt">Checked ID: {{ checkedIds | json }}</code>
+      <div class="form-inline" slot="opt">
+        <button class="btn btn-xs btn-default" @click="$broadcast('TOGGLE_ALL', true)">Check All</button>
+        <button class="btn btn-xs btn-default" @click="$broadcast('TOGGLE_ALL')">Uncheck All</button>
+        <code>Checked ID: {{ checkedIds | json }}</code>
+      </div>
     </data-table>
   </div>
 
