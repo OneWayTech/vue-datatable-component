@@ -86,6 +86,10 @@ src/DataTable
 @prop value: { type: Any }
 ```
 
+#### Notice
+
+In terms of the usage of **events** (`$dispatch / $broadcast / $on`) of a table-cell component, you should be aware of that: its parent component is `DataTable`. You should use `this.$parent.$dispatch(<event_name>, <payload>)` instead of `this.$dispatch` since `DataTable` would not keep  event propagation.
+
 #### Build
 
 `npm run build`
