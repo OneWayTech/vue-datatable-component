@@ -83,7 +83,7 @@ src/DataTable
 // table-cell component accessible props
 @prop row: { type: Object, twoWay: true }
 @prop field: { type: String }
-@prop value: { type: Any }
+@prop value: { type: Any, twoWay: true }
 ```
 
 #### Notice

@@ -39,7 +39,7 @@
                   :is="column.component"
                   :row.sync="item"
                   :field="column.field"
-                  :value="item[column.field]">
+                  :value.sync="item[column.field]">
                 </component>
                 <template v-else>
                   {{ item[column.field]  }}
