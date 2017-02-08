@@ -104,9 +104,6 @@ export default {
       this.$options.components,
       this.$parent.$options.components.__proto__
     )
-  },
-  attached () {
-    $('[data-toggle=tooltip]').tooltip()
   }
 }
 </script>

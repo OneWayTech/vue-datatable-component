@@ -122,6 +122,7 @@ export default {
     }
   },
   attached () {
+    $(this.$el).tooltip()
     // prevent auto-hide
     $(this.$els.dropdownMenu).on('click', e => e.stopPropagation())
 
