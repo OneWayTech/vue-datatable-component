@@ -1,5 +1,7 @@
 # Vue Date Table Component
 
+### Attention: new repo for Vue 2.x: https://github.com/OneWayTech/vue2-datatable
+
 [![npm version][npm-v-img]][npm-url]
 [![npm download][npm-dl-img]][npm-url]
 
